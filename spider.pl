@@ -26,12 +26,12 @@ sub spider {
 		if ($content !~ /^\d{3}/) {
 			my @arr;
 			$content =~ s{\n}{}gi;
-			push @arr, $1  while $content =~ /<li id="(\d+)"><div>/gs;
+			push @arr, $1  while $content =~ /<a href="\/[^"]+\d+">#(\d+)</gs;
 			print USERNAME join "\n", @arr;
 			print USERNAME "\n";
 			print "Page $_: OK\n";
 		} else {
-			print "Page $lastPageNumber: FAIL\n";
+			print "Page $lastPageNumber: FAIL $content\n";
 		}
 	}
 	close USERNAME;

@@ -1,0 +1,22 @@
+
+ЧТО:
+
+Возвращённая в более-менее рабочее состояние древняя (2009!) версия бэкапера
+жуйка.
+
+Исходная версия:
+http://git.freefd.info/cgit/juick-backup/log
+
+Исходный автор и его комментарии:
+http://juick.com/freefd/303406
+
+
+КАК:
+* Поставить все зависимости.
+ В debian/ubuntu это пакеты libjson-xs-perl libxml-simple-perl
+  libnet-xmpp-perl и, может быть, что-то ещё.
+* Прописать в config в backup.pl какие-либо данные для джабберлогина.
+* Запустить `perl spider.pl username pagenumber` где username — никнейм на
+ джуйке, pagenumber — номер страницы, по которую необходимо выполнить бэкап.
+* Запустить `perl backup.pl username | tee dump.json` и проверить, что хоть
+ какой-то результат всё ещё есть.
